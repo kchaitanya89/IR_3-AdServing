@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Go Seek!</title>
+</h:head>
+<h:body>
+	<b:well>
+		<h:panelGrid columns="2" cellpadding="5">
+			<h:graphicImage value="/Resources/Images/logo.gif" width="100"
+				height="40" style="padding: 0px 10px 10px 10px;"></h:graphicImage>
+			<h:form>
+				<b:inputText value="#{indexBean.query}" size="60">
+					<f:facet name="append">
+						<b:commandButton icon="search" iconAlign="right"
+							look="btn btn-primary" value="" action="#{indexBean.newSearch}"></b:commandButton>
+					</f:facet>
+				</b:inputText>
+			</h:form>
+		</h:panelGrid>
+	</b:well>
+
+	<b:container>
+		<b:column col-lg="8">
+			<h:outputText
+				value="About #{indexBean.numFound} results in #{indexBean.qTime}ms"></h:outputText>
+		</b:column>
+		<hr style="padding: 0px 10px;" />
+		<b:column col-lg="8" rendered="#{indexBean.suggestedWord ne null}">
+			<h:form>
+				<h:outputText style="font-size: 1.5em;" value="Did you mean - "></h:outputText>
+				<h:commandLink style="font-size: 1.5em;"
+					action="#{indexBean.searchWithSuggestion}"
+					value="#{indexBean.suggestedWord}"></h:commandLink>
+			</h:form>
+			<hr />
+		</b:column>
+		<b:column col-lg="8">
+			<h:form enctype="multipart/form-data'">
+				<ui:repeat value="#{indexBean.results}" var="result">
+					<b:panel look="primary">
+						<b:listLinks>
+							<h:commandLink action="#{indexBean.fetchFile}" target="_blank"
+								value="#{result.title}">
+								<f:setPropertyActionListener
+									target="#{indexBean.currentCategory}"
+									value="#{result.category}" />
+								<f:setPropertyActionListener target="#{indexBean.currentFileId}"
+									value="#{result.fileId}" />
+							</h:commandLink>
+							<ui:remove>
+								<b:navLink href="#{result.title}" value="#{result.title}"
+									icon="globe" iconAlign="right" />
+							</ui:remove>
+							<b:navLink>
+								<b:column style="padding-left:15px;">
+									<h:outputText value="#{result.highlightedContent}"
+										escape="false"></h:outputText>
+								</b:column>
+							</b:navLink>
+							<b:navLink></b:navLink>
+						</b:listLinks>
+					</b:panel>
+				</ui:repeat>
+			</h:form>
+			<b:container rendered="#{indexBean.paginationEnabled}">
+				<h:form>
+					<nav>
+						<ul class="pagination">
+							<li><a href="#"><span aria-hidden="true">&lt;&lt;</span><span
+									class="sr-only">Previous</span></a></li>
+							<c:forEach var="i" begin="1" end="#{indexBean.numberOfPages}">
+								<li><h:commandLink action="#{indexBean.newSearch}"
+										value="#{i}">
+										<f:setPropertyActionListener target="#{indexBean.range}"
+											value="#{i}" />
+									</h:commandLink></li>
+							</c:forEach>
+							<li><a href="#"><span aria-hidden="true">&gt;&gt;</span><span
+									class="sr-only">Next</span></a></li>
+
+
+
+						</ul>
+					</nav>
+				</h:form>
+			</b:container>
+		</b:column>
+		<b:column col-lg="4" rendered="#{indexBean.adResults ne null}">
+			<h:form>
+				<ui:repeat value="#{indexBean.adResults}" var="adResult">
+					<b:listLinks>
+						<b:label text="Ad" severity="warning" />
+						<h:commandLink target="_blank" 
+							actionListener="#{indexBean.updateCounter(adResult.keyLinkId, adResult.link)}"> #{adResult.link}</h:commandLink>
+						<br />
+						<h:outputText value="#{adResult.description}"></h:outputText>
+					</b:listLinks>
+					<hr />
+				</ui:repeat>
+			</h:form>
+		</b:column>
+		<b:column col-lg="4" rendered="#{indexBean.twittterResults ne null}">
+			<ui:repeat value="#{indexBean.twittterResults}" var="twitterResult">
+				<b:listLinks>
+					<b:label text="Twitter" severity="info" />
+					<h:outputText value="#{twitterResult}"></h:outputText>
+				</b:listLinks>
+				<hr />
+			</ui:repeat>
+		</b:column>
+	</b:container>
+
+</h:body>
+</html>

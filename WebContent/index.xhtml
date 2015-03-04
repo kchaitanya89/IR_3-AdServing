@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>Go Seek</title>
+</h:head>
+<h:body>
+	<b:navBar brand="Seek" brandHref="#" inverse="true">
+		<b:navbarLinks>
+			<!-- CHANGEME: change the port number to the one used by your server on which bidding app is deployed -->
+			<b:navLink value="Login" href="http://localhost:9090/bidding/login.jsp"></b:navLink>
+			<b:navLink value="Stats" href="#"></b:navLink>
+		</b:navbarLinks>
+	</b:navBar>
+	<!-- 	<br /> -->
+	<!-- 	<br /> -->
+	<!-- 	<br /> -->
+	<!-- 	<br /> -->
+	<!-- 	<br /> -->
+	<!-- 	<br /> -->
+	<!-- 	<br /> -->
+	<!-- 	<br /> -->
+	<!-- 	<br /> -->
+	<!-- 	<br /> -->
+	<!-- 	<br /> -->
+	<!-- 	<br /> -->
+	<!-- 	<br /> -->
+
+	<b:container>
+		<b:row>
+			<b:column col-lg="6" offset-lg="3" styleClass="top-spacer">
+				<h:form>
+					<br />
+					<br />
+					<h:graphicImage value="/Resources/Images/logo.gif" width="500"
+						height="171"></h:graphicImage>
+					<br />
+					<br />
+					<h:panelGrid columns="8" cellpadding="10">
+						<b:inputText value="#{indexBean.query}" size="60" />
+
+						<b:commandButton icon="search" iconAlign="right"
+							look="btn btn-primary" value="Search"
+							action="#{indexBean.newSearch}"></b:commandButton>
+					</h:panelGrid>
+				</h:form>
+			</b:column>
+		</b:row>
+	</b:container>
+</h:body>
+</html>

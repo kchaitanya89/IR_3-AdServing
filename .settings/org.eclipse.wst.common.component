@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="IR_3_Search">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes/" source-path="/ImportedClasses"/>
+        <dependent-module archiveName="jstl-1.2.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/jstl-1.2/jstl-1.2">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ojdbc7.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/ojdbc7/ojdbc7">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jsoup-1.8.1.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/jsoup-1.8.1/jsoup-1.8.1">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="newsindexer.jar" deploy-path="/WEB-INF/lib/">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-io-2.3.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/commons-io-2.3/commons-io-2.3">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-logging-1.2.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/commons-logging-1.2/commons-logging-1.2">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="httpmime-4.3.1.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/httpmime-4.3.1/httpmime-4.3.1">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="httpclient-4.3.1.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/httpclient-4.3.1/httpclient-4.3.1">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="twitter4j-core-4.0.2.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/twitter4j-core-4.0.2/twitter4j-core-4.0.2">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="slf4j-api-1.7.6.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/slf4j-api-1.7.6/slf4j-api-1.7.6">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="javax.faces-2.2.8.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/javax.faces-2.2.8/javax.faces-2.2.8">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="httpcore-4.3.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/httpcore-4.3/httpcore-4.3">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="solr-solrj-4.9.0.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/solr-solrj-4.9.0/solr-solrj-4.9.0">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="BootsFaces-OSP-dist-0.5.0.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/BootsFaces-OSP-dist-0.5.0/BootsFaces-OSP-dist-0.5.0">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="gson-2.3.1.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/gson-2.3.1/gson-2.3.1">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="IR_3_Search"/>
+        <property name="java-output-path" value="/IR_3_Search/build/classes"/>
+    </wb-module>
+</project-modules>

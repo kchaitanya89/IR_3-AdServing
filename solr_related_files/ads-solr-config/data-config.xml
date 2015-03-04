@@ -1,0 +1,16 @@
+<dataConfig>
+	<!-- CHANGEME: change the url, user and password fields to match your database user -->
+	<dataSource name="jdbc" driver="oracle.jdbc.driver.OracleDriver" url="jdbc:oracle:thin:@//localhost:1521/xe" user="hr" password="hr"/>
+    <document name="ads">
+        <entity name="link_master" pk="KEYLINK_ID"
+                query="select * from link_master"
+                deltaImportQuery="select * from link_master where KEYLINK_ID='${dataimporter.delta.KEYLINK_ID}'"
+                deltaQuery="select KEYLINK_ID from link_master where LAST_MODIFIED &gt; to_date('${dataimporter.last_index_time}','YYYY-MM-DD HH24:MI:SS')">
+            <field column="KEYLINK_ID" name="KEYLINK_ID" />
+            <field column="LINK_ID" name="LINK_ID" />
+            <field column="KEYWORD_NAME" name="KEYWORD" />
+            <field column="LINK_NAME" name="LINK" />
+            <field column="LINK_DESCRIPTION" name="DESCRIPTION" />
+        </entity>
+    </document>
+</dataConfig>
